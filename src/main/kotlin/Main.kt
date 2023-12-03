@@ -1,7 +1,30 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun searchByAuthor(author: String) {
+        var isAvailable:Boolean = false
+        for (book in books) {
+            if (!book.isBorrowed && book.author == author) {
+                println("${book.title} by ${book.author} (${book.publicationYear})")
+                isAvailable = true
+                break
+            }
+        }
+        if (!isAvailable) {
+            println("Not Available book")
+        }
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
-}
+    }
+
+    fun searchByYear(year: Int) {
+        var isAvailable:Boolean = false
+        for (book in books) {
+            if (!book.isBorrowed && book.publicationYear == year) {
+                println("${book.title} by ${book.author} (${book.publicationYear})")
+                isAvailable = true
+                break
+            }
+
+        }
+        if (!isAvailable) {
+            println("Not Available book")
+        }
+    }
+
